@@ -7,7 +7,7 @@
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.speech.js"></script>
     <script src="https://use.fontawesome.com/4bcafbfb2f.js"></script>
-    <script src="js/speech.js"></script>
+    <script src="js/validation.js"></script>
     <script src="js/complementary.js"></script>
     <script src="js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -16,9 +16,9 @@
   <body>
     <div id="logo">⑇simpleColor</div>
     <form>
-      <h1>ENTER A HEXCODE</h1>
+      <h1>SAY A HEXCODE</h1>
       <div id="mic"><i class="fa fa-microphone fa-3x" aria-hidden="true"></i></div>
-      <input type="text" placeholder="#007BFF">
+      <input type="text" placeholder="007BFF" pattern="^([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
       <button type="submit">COLORIFY!</button>
     </form>
     <div id="results">
@@ -30,5 +30,6 @@
         <p class="complementary-text"></p>
       </div>
     </div>
+    <audio id="sound" src="listening.mp3" type="audio/mpeg">Your browser does not support the &#60;audio&#62; element.</audio>
   </body>
 </html>
