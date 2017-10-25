@@ -9,7 +9,6 @@ $(function() {
     speechRec.rec.lang = lang; //set language
 
     setTimeout(function() { //show recording after .9 seconds
-      sound.play();
       $('i').addClass('recording');
     }, 900);
 
@@ -17,7 +16,6 @@ $(function() {
       let text = speechValidate(speechRec.resultString); //validate speech
       $('input').val(text); //add result to text
       $('i').removeClass('recording'); //remove recording animation
-      sound.play();
       $('form').submit(); //submit form
     }
 
@@ -33,7 +31,7 @@ $(function() {
 
     let colorNoHash = $('input').val();
     let hexcode = "#" + $('input').val();
-    let complementary = invertColor(colorNoHash);
+    let invert = invertColor(colorNoHash);
 
     //get color name
     $.ajax({
@@ -43,21 +41,21 @@ $(function() {
         dataType : 'jsonp',
         crossDomain:true,
         success: function(data, status, xhr) {
-          $('span').text(data.name.value);
+          $('h1').text(data.name.value);
         }
     });
 
     //change main colors
     $('body').css('background-color', hexcode);
-    $('*').css('color', complementary);
-    $('*').css('border-color', complementary);
+    $('*').css('color', invert);
+    $('*').css('border-color', invert);
 
     //change text
-    $('.complementary-text').text(complementary);
+    $('.invert-text').text(invert);
 
     //change result colors
-    $('.complementary-text').css('color', complementary);
-    $('.inner-complementary').css('background-color', complementary);
+    $('.invert-text').css('color', invert);
+    $('.inner-invert').css('background-color', invert);
   });
 
 });
