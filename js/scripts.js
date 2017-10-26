@@ -9,9 +9,9 @@ $(function() {
     speechRec.start(); // start listening
     speechRec.rec.lang = lang; //set language
 
-    setTimeout(function() { //show recording after .9 seconds
+    setTimeout(function() { //show mic is recording after .5 seconds
       $('i').addClass('recording');
-    }, 900);
+    }, 500);
 
     function showResult() {
       let text = speechRec.resultString.replace(/[^a-z0-9]/gi, ''); //remove special charactors and spaces from speech
