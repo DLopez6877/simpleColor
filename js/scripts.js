@@ -67,7 +67,7 @@ $(function() {
           $('h1').text(data.name.value);
         },
         error: function(xhr, textStatus, errorThrown){
-          $('h1').text('hmm... ¯\\_(ツ)_/¯');
+          $('h1').text('SAY A COLOR');
         }
       });
     }
