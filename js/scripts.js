@@ -1,4 +1,5 @@
 $(function() {
+
   //speech recognition
   $('#mic').click(function() {
     let lang = navigator.language || 'en-US'; //grab language from browser or set toenglish
@@ -13,8 +14,8 @@ $(function() {
     }, 900);
 
     function showResult() {
-      // let text = speechValidate(speechRec.resultString); //validate speech
-      $('input').val(speechRec.resultString); //add result to text
+      let text = speechRec.resultString.replace(/[^a-z0-9]/gi, ''); //remove special charactors and spaces from speech
+      $('input').val(text); //add result to text
       $('i').removeClass('recording'); //remove recording animation
       $('form').submit(); //submit form
     }
@@ -24,6 +25,9 @@ $(function() {
       $('i').removeClass('recording'); //remove recording animation
     }
   });
+
+
+
   //form submit
   $('form').submit(function(e) {
     e.preventDefault();
@@ -52,7 +56,20 @@ $(function() {
     if (color.toName()) {
       $('h1').text(color.toName());
     } else {
-      $('h1').text('hmm... ¯\\_(ツ)_/¯');
+      //get color name from color api
+      $.ajax({
+        type: "GET",
+        url: 'http://thecolorapi.com/id?hex='+ hexcode.substring(1),
+        async:true,
+        dataType : 'jsonp',
+        crossDomain:true,
+        success: function(data, status, xhr) {
+          $('h1').text(data.name.value);
+        },
+        error: function(xhr, textStatus, errorThrown){
+          $('h1').text('hmm... ¯\\_(ツ)_/¯');
+        }
+      });
     }
     $('h1').css('text-transform', 'capitalize');
 
@@ -91,5 +108,28 @@ $(function() {
     $('.inner-tetradic-two').css('background-color', tetradic[2]);
     $('.inner-tetradic-three').css('background-color', tetradic[3]);
   });
+
+
+  //background lighten and darken controls
+  $('#lighten').click(function() {
+    $('body').css('background-color', tinycolor($('body').css('background-color')).lighten(10).toString());
+  });
+  $('#darken').click(function() {
+    $('body').css('background-color', tinycolor($('body').css('background-color')).darken(10).toString());
+  });
+
+
+  //copy hexcodes to clipboard
+  $('.text-control').children().click(function() {
+    $selectedHexcode = $(this).text();
+    $this = $(this);
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($selectedHexcode).select();
+    document.execCommand("copy");
+    $temp.remove();
+    $(this).text('Copied!');
+    setTimeout(function(){$($this).text($selectedHexcode);}, 1000);
+  })
 
 });

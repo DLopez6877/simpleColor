@@ -5,13 +5,12 @@
 
 body {
   margin: 0;
-  background-color: #007bff;
   font-family: 'Nunito', sans-serif;
   display: grid;
   height: calc(100vh - 40px);
   padding: 20px;
   grid-gap: 20px;
-  grid-template-rows: 1fr 2fr 2fr;
+  grid-template-rows: 1fr 2fr 3fr;
   grid-template-areas: "logo"
                        "form"
                        "results";
@@ -85,6 +84,7 @@ input {
   background-color: transparent;
   font-size: 20px;
   color: #f8f9fa;
+  text-transform: uppercase;
   /*transform: scale(3);*/
 }
 
@@ -126,11 +126,19 @@ button:focus {
   flex-direction: column;
 }
 
+h5 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+span {
+  margin: 0 20px;
+}
+
 .relationship {
   display: flex;
-  /*justify-content: space-between;*/
+  flex-wrap: wrap;
   align-items: center;
-  /*width: 65px;*/
 }
 
 .relationship-title {
@@ -141,7 +149,7 @@ button:focus {
 }
 
 p {
-  font-size: 20px;
+  font-size: 19px;
   text-transform: uppercase;
   font-weight: 600;
   margin: 5px;

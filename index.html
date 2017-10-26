@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,600" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body style="background-color: #007bff">
     <div id="logo">
     <div class="logo-img">⑇simpleColor</div>
     <h1>SAY A HEXCODE</h1>
@@ -24,13 +24,16 @@
       <button type="submit">COLORIFY!</button>
     </form>
     <div id="results">
+      <h5>background: <span id="lighten">lighten</span><span id="darken">darken</span></h5>
       <div class="relationship">
         <p class="relationship-title">invert</p>
         <div class="large-circle" id="large-invert">
           <div class="inner-main inner-circle"></div>
           <div class="inner-circle inner-invert"></div>
         </div>
-        <p class="invert-text">#00FFFF</p>
+        <div class="text-control">
+          <p class="invert-text">#00FFFF</p>
+        </div>
       </div>
       <div class="relationship">
         <p class="relationship-title">complementary</p>
@@ -38,10 +41,12 @@
           <div class="inner-main inner-circle"></div>
           <div class="inner-circle inner-complementary"></div>
         </div>
-        <p class="complementary-text">#00FFFF</p>
+        <div class="text-control">
+          <p class="complementary-text">#00FFFF</p>
+        </div>
       </div>
       <div class="relationship">
-        <p class="relationship-title">split-complementary</p>
+        <p class="relationship-title">split-comp</p>
         <div class="large-circle" id="large-split-comp">
           <div class="inner-split-comp-one inner-circle"></div>
           <div class="inner-main inner-circle"></div>
