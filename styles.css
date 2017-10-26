@@ -10,8 +10,8 @@ body {
   display: grid;
   height: calc(100vh - 40px);
   padding: 20px;
-  grid-gap: 40px;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-gap: 20px;
+  grid-template-rows: 1fr 2fr 2fr;
   grid-template-areas: "logo"
                        "form"
                        "results";
@@ -24,6 +24,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-weight: 200;
+  /*transform: scale(3);*/
 }
 
 form {
@@ -39,6 +41,7 @@ form {
 h1 {
   margin: 0;
   font-size: 1.8rem;
+  font-weight: normal;
 }
 
 #mic {
@@ -46,9 +49,10 @@ h1 {
 }
 
 i {
-  border: 3px solid;
-  padding: 20px 28px;
+  border: 2px solid;
+  padding: 18.5px 25px;
   border-radius: 50%;
+  /*transform: scale(3);*/
 }
 
 i:hover {
@@ -75,12 +79,13 @@ input {
   max-width: 300px;
   height: 40px;
   border: none;
-  border-bottom: 3px solid;
+  border-bottom: 2px solid;
   text-align: center;
   border-color: #f8f9fa;
   background-color: transparent;
   font-size: 20px;
   color: #f8f9fa;
+  /*transform: scale(3);*/
 }
 
 input::placeholder {
@@ -94,13 +99,14 @@ input:focus {
 
 button {
   border-radius: 10px;
-  border: 3px solid;
+  border: 2px solid;
   border-color: #f8f9fa;
   background-color: transparent;
   color: #f8f9fa;
   font-size: 20px;
   padding: 10px 20px;
   cursor: pointer;
+  /*transform: scale(3);*/
 }
 
 button:hover {
@@ -116,6 +122,7 @@ button:focus {
   grid-area: results;
   display: flex;
   justify-content: space-between;
+  padding-top: 2vh;
 }
 
 .relationship {
@@ -126,13 +133,16 @@ button:focus {
 }
 
 .relationship-title {
-  font-size: 11px;
+  font-size: 7px;
+  letter-spacing: 2px;
+  margin: 0;
 }
 
 p {
   font-size: 12px;
-  margin: 0;
   text-transform: uppercase;
+  font-weight: 600;
+  margin: 5px 0;
 }
 
 .large-circle {
@@ -146,10 +156,11 @@ p {
 }
 
 .inner-circle {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 2px solid;
+  box-sizing: border-box;
 }
 
 #large-invert {
@@ -158,12 +169,12 @@ p {
   justify-content: space-between;
 }
 
-#large-analogous {;
+#large-split-comp {;
   justify-content: center;
 }
 
-div[class^="inner-an"] {
-  margin-top: 5px;
+div[class^="inner-sp"] {
+  margin-top: 15px;
 }
 
 #large-triadic {
@@ -171,7 +182,7 @@ div[class^="inner-an"] {
 }
 
 div[class^="inner-tri"] {
-  margin-top: 15px;
+  margin-top: 20px;
   align-self: center;
 }
 

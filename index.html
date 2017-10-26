@@ -3,14 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>simpleColor</title>
-    <script src="libraries/jquery-3.2.1.min.js"></script>
-    <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.speech.js"></script>
     <script src="https://use.fontawesome.com/4bcafbfb2f.js"></script>
-    <script src="js/validation.js"></script>
+    <script src="libraries/jquery-3.2.1.min.js"></script>
+    <script src="libraries/tinycolor.js"></script>
     <script src="js/invert.js"></script>
     <script src="js/scripts.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,600" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -19,44 +17,44 @@
     <h1>SAY A HEXCODE</h1>
     </div>
     <form>
-      <div id="mic"><i class="fa fa-microphone fa-3x" aria-hidden="true"></i></div>
-      <input type="text" placeholder="007BFF" pattern="^([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$">
+      <div id="mic"><i class="fa fa-microphone fa-2x" aria-hidden="true"></i></div>
+      <input type="text" placeholder="FF0000">
       <button type="submit">COLORIFY!</button>
     </form>
     <div id="results">
       <div class="relationship">
         <p class="relationship-title">invert</p>
         <div class="large-circle" id="large-invert">
-          <div class="inner-circle"></div>
+          <div class="inner-main inner-circle"></div>
           <div class="inner-circle inner-invert"></div>
         </div>
-        <p class="invert-text">#070605</p>
+        <p class="invert-text">#00FFFF</p>
       </div>
       <div class="relationship">
-        <p class="relationship-title">analogous</p>
-        <div class="large-circle" id="large-analogous">
-          <div class="inner-analagous-one inner-circle"></div>
-          <div class="inner-circle"></div>
-          <div class="inner-analagous-two inner-circle"></div>
+        <p class="relationship-title">split-comp</p>
+        <div class="large-circle" id="large-split-comp">
+          <div class="inner-split-comp-one inner-circle"></div>
+          <div class="inner-main inner-circle"></div>
+          <div class="inner-split-comp-two inner-circle"></div>
         </div>
-        <p class="analogous-text-one">#070605</p>
-        <p class="analogous-text-two">#070605</p>
+        <p class="split-comp-text-one">#CCFF00</p>
+        <p class="split-comp-text-two">#0066FF</p>
       </div>
       <div class="relationship">
         <p class="relationship-title">triadic</p>
         <div class="large-circle" id="large-triadic">
           <div class="inner-triadic-one inner-circle"></div>
-          <div class="inner-circle"></div>
+          <div class="inner-main inner-circle"></div>
           <div class="inner-triadic-two inner-circle"></div>
         </div>
-        <p class="triadic-text-one">#070605</p>
-        <p class="triadic-text-two">#070605</p>
+        <p class="triadic-text-one">#00FF00</p>
+        <p class="triadic-text-two">#0000FF</p>
       </div>
       <div class="relationship">
         <p class="relationship-title">tetradic</p>
         <div class="large-circle" id="large-tetradic">
           <div class="inner-control">
-            <div class="inner-circle"></div>
+            <div class="inner-main inner-circle"></div>
             <div class="inner-tetradic-one inner-circle"></div>
           </div>
           <div class="inner-control">
@@ -64,9 +62,9 @@
             <div class="inner-tetradic-three inner-circle"></div>
           </div>
         </div>
-        <p class="tetradic-text-one">#070605</p>
-        <p class="tetradic-text-two">#070605</p>
-        <p class="tetradic-text-three">#070605</p>
+        <p class="tetradic-text-one">#80FF00</p>
+        <p class="tetradic-text-two">#00FFFF</p>
+        <p class="tetradic-text-three">#7F00FF</p>
       </div>
     </div>
   </body>
