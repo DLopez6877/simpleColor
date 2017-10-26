@@ -123,31 +123,33 @@ button:focus {
   display: flex;
   justify-content: space-between;
   padding-top: 2vh;
+  flex-direction: column;
 }
 
 .relationship {
   display: flex;
-  flex-direction: column;
+  /*justify-content: space-between;*/
   align-items: center;
-  width: 65px;
+  /*width: 65px;*/
 }
 
 .relationship-title {
-  font-size: 7px;
+  font-size: 12px;
   letter-spacing: 2px;
   margin: 0;
+  text-decoration: underline;
 }
 
 p {
-  font-size: 12px;
+  font-size: 20px;
   text-transform: uppercase;
   font-weight: 600;
-  margin: 5px 0;
+  margin: 5px;
 }
 
 .large-circle {
   margin: 5px 0;
-  display: flex;
+  display: none;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -187,7 +189,6 @@ div[class^="inner-tri"] {
 }
 
 #large-tetradic {
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
@@ -195,4 +196,8 @@ div[class^="inner-tri"] {
 .inner-control {
   display: flex;
   justify-content: space-around;
+}
+
+.text-control {
+  display: flex;
 }

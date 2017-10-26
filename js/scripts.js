@@ -1,4 +1,29 @@
 $(function() {
+  //speech recognition
+  $('#mic').click(function() {
+    let lang = navigator.language || 'en-US'; //grab language from browser or set toenglish
+    var speechRec = new p5.SpeechRec(); // speech recognition object (will prompt formic access)
+    speechRec.onResult = showResult; // bind callback function to trigger when speechis recognized
+    speechRec.onError = showError; // bind callback function to trigger when speechis not recognized
+    speechRec.start(); // start listening
+    speechRec.rec.lang = lang; //set language
+
+    setTimeout(function() { //show recording after .9 seconds
+      $('i').addClass('recording');
+    }, 900);
+
+    function showResult() {
+      // let text = speechValidate(speechRec.resultString); //validate speech
+      $('input').val(speechRec.resultString); //add result to text
+      $('i').removeClass('recording'); //remove recording animation
+      $('form').submit(); //submit form
+    }
+
+    function showError() {
+      $('input').val("Oops.. try that again"); //display error in input field
+      $('i').removeClass('recording'); //remove recording animation
+    }
+  });
   //form submit
   $('form').submit(function(e) {
     e.preventDefault();
@@ -6,6 +31,8 @@ $(function() {
     let color = tinycolor($('input').val());
     let hexcode = color.toHexString();
     let invert = invertColor(hexcode);
+
+    let comp = tinycolor(color).complement().toHexString();
 
     let splitComp = tinycolor(color).splitcomplement();
     splitComp = splitComp.map(function(t) { return t.toHexString(); });
@@ -31,6 +58,7 @@ $(function() {
 
     //change result text
     $('.invert-text').text(invert);
+    $('.complementary-text').text(comp);
     $('.split-comp-text-one').text(splitComp[1]);
     $('.split-comp-text-two').text(splitComp[2]);
     $('.triadic-text-one').text(triadic[1]);
@@ -41,6 +69,7 @@ $(function() {
 
     //change result text color
     $('.invert-text').css('color', invert);
+    $('.complementary-text').css('color', comp);
     $('.split-comp-text-one').css('color', splitComp[1]);
     $('.split-comp-text-two').css('color', splitComp[2]);
     $('.triadic-text-one').css('color', triadic[1]);
@@ -53,6 +82,7 @@ $(function() {
     $('.inner-circle').css('border', 'none');
     $('.inner-main').css('border', '2px solid');
     $('.inner-invert').css('background-color', invert);
+    $('.inner-complementary').css('background-color', comp);
     $('.inner-split-comp-one').css('background-color', splitComp[1]);
     $('.inner-split-comp-two').css('background-color', splitComp[2]);
     $('.inner-triadic-one').css('background-color', triadic[1]);
