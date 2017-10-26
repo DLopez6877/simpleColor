@@ -112,10 +112,16 @@ $(function() {
 
   //background lighten and darken controls
   $('#lighten').click(function() {
-    $('body').css('background-color', tinycolor($('body').css('background-color')).lighten(10).toString());
+    let newColor = tinycolor($('body').css('background-color')).lighten(10).toHexString();
+    $('body').css('background-color', newColor);
+    $('h1').text(newColor);
+    $('h1').css('text-transform', 'uppercase');
   });
   $('#darken').click(function() {
-    $('body').css('background-color', tinycolor($('body').css('background-color')).darken(10).toString());
+    let newColor = tinycolor($('body').css('background-color')).darken(10).toHexString();
+    $('body').css('background-color', newColor);
+    $('h1').text(newColor);
+    $('h1').css('text-transform', 'uppercase');
   });
 
 
