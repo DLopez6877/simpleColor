@@ -81,7 +81,7 @@ input {
   background-color: transparent;
   color: #f8f9fa;
   text-transform: uppercase;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
 }
 
 input::placeholder {
