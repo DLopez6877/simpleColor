@@ -18,13 +18,11 @@ body {
 
 #logo {
   grid-area: logo;
-  font-size: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   font-weight: 200;
-  /*transform: scale(3);*/
 }
 
 form {
@@ -39,19 +37,18 @@ form {
 
 h1 {
   margin: 0;
-  font-size: 1.8rem;
   font-weight: normal;
 }
 
 #mic {
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 i {
   border: 2px solid;
   padding: 18.5px 25px;
   border-radius: 50%;
-  /*transform: scale(3);*/
 }
 
 i:hover {
@@ -82,10 +79,9 @@ input {
   text-align: center;
   border-color: #f8f9fa;
   background-color: transparent;
-  font-size: 20px;
   color: #f8f9fa;
   text-transform: uppercase;
-  /*transform: scale(3);*/
+  padding-bottom: 4px;
 }
 
 input::placeholder {
@@ -103,10 +99,8 @@ button {
   border-color: #f8f9fa;
   background-color: transparent;
   color: #f8f9fa;
-  font-size: 20px;
   padding: 10px 20px;
   cursor: pointer;
-  /*transform: scale(3);*/
 }
 
 button:hover {
@@ -120,20 +114,28 @@ button:focus {
 
 #results {
   grid-area: results;
+}
+
+#controls {
+  margin: 0;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#controls span {
+  font-weight: 200;
+  margin-left: 20px;
+}
+
+.results-control {
   display: flex;
   justify-content: space-between;
-  padding-top: 2vh;
   flex-direction: column;
+  height: 80%;
 }
 
-h5 {
-  margin: 0;
-  margin-bottom: 10px;
-}
-
-span {
-  margin: 0 20px;
-}
 
 .relationship {
   display: flex;
@@ -142,70 +144,39 @@ span {
 }
 
 .relationship-title {
-  font-size: 10px;
   letter-spacing: 1.8px;
   margin: 0;
   text-decoration: underline;
 }
 
 p {
-  font-size: 18px;
   text-transform: uppercase;
   font-weight: 600;
-  margin: 5px;
-}
-
-.large-circle {
-  margin: 5px 0;
-  display: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid;
-  padding: 6px;
-}
-
-.inner-circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid;
-  box-sizing: border-box;
-}
-
-#large-invert {
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#large-split-comp {;
-  justify-content: center;
-}
-
-div[class^="inner-sp"] {
-  margin-top: 15px;
-}
-
-#large-triadic {
-  justify-content: center;
-}
-
-div[class^="inner-tri"] {
-  margin-top: 20px;
-  align-self: center;
-}
-
-#large-tetradic {
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.inner-control {
-  display: flex;
-  justify-content: space-around;
+  margin: 5px 0 5px 2.8vw;
 }
 
 .text-control {
   display: flex;
+}
+
+@media screen and (min-width: 720px) {
+  i {
+    padding: 18.5px 30px;
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .results-control {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .relationship {
+    flex-direction: column;
+  }
+  .text-control {
+    flex-direction: column;
+  }
+  p {
+    margin: 0;
+  }
 }

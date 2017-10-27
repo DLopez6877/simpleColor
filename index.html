@@ -11,7 +11,8 @@
     <script src="js/invert.js"></script>
     <script src="js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,600" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/font-size.css">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body style="background-color: #007bff">
     <div id="logo">
@@ -24,67 +25,41 @@
       <button type="submit">COLORIFY!</button>
     </form>
     <div id="results">
-      <h5>background: <span id="lighten">lighten</span><span id="darken">darken</span></h5>
-      <div class="relationship">
-        <p class="relationship-title">invert</p>
-        <div class="large-circle" id="large-invert">
-          <div class="inner-main inner-circle"></div>
-          <div class="inner-circle inner-invert"></div>
-        </div>
-        <div class="text-control">
-          <p class="invert-text">#00FFFF</p>
-        </div>
-      </div>
-      <div class="relationship">
-        <p class="relationship-title">complementary</p>
-        <div class="large-circle" id="large-complementary">
-          <div class="inner-main inner-circle"></div>
-          <div class="inner-circle inner-complementary"></div>
-        </div>
-        <div class="text-control">
-          <p class="complementary-text">#00FFFF</p>
-        </div>
-      </div>
-      <div class="relationship">
-        <p class="relationship-title">split-comp</p>
-        <div class="large-circle" id="large-split-comp">
-          <div class="inner-split-comp-one inner-circle"></div>
-          <div class="inner-main inner-circle"></div>
-          <div class="inner-split-comp-two inner-circle"></div>
-        </div>
-        <div class="text-control">
-          <p class="split-comp-text-one">#CCFF00</p>
-          <p class="split-comp-text-two">#0066FF</p>
-        </div>
-      </div>
-      <div class="relationship">
-        <p class="relationship-title">triadic</p>
-        <div class="large-circle" id="large-triadic">
-          <div class="inner-triadic-one inner-circle"></div>
-          <div class="inner-main inner-circle"></div>
-          <div class="inner-triadic-two inner-circle"></div>
-        </div>
-        <div class="text-control">
-          <p class="triadic-text-one">#00FF00</p>
-          <p class="triadic-text-two">#0000FF</p>
-        </div>
-      </div>
-      <div class="relationship">
-        <p class="relationship-title">tetradic</p>
-        <div class="large-circle" id="large-tetradic">
-          <div class="inner-control">
-            <div class="inner-main inner-circle"></div>
-            <div class="inner-tetradic-one inner-circle"></div>
-          </div>
-          <div class="inner-control">
-            <div class="inner-tetradic-two inner-circle"></div>
-            <div class="inner-tetradic-three inner-circle"></div>
+      <h5 id="controls">background: <span id="lighten">lighten</span><span id="darken">darken</span></h5>
+      <div class="results-control">
+        <div class="relationship">
+          <p class="relationship-title">invert</p>
+          <div class="text-control">
+            <p class="invert-text">#00FFFF</p>
           </div>
         </div>
-        <div class="text-control">
-          <p class="tetradic-text-one">#80FF00</p>
-          <p class="tetradic-text-two">#00FFFF</p>
-          <p class="tetradic-text-three">#7F00FF</p>
+        <div class="relationship">
+          <p class="relationship-title">complementary</p>
+          <div class="text-control">
+            <p class="complementary-text">#00FFFF</p>
+          </div>
+        </div>
+        <div class="relationship">
+          <p class="relationship-title">split-comp</p>
+          <div class="text-control">
+            <p class="split-comp-text-one">#CCFF00</p>
+            <p class="split-comp-text-two">#0066FF</p>
+          </div>
+        </div>
+        <div class="relationship">
+          <p class="relationship-title">triadic</p>
+          <div class="text-control">
+            <p class="triadic-text-one">#00FF00</p>
+            <p class="triadic-text-two">#0000FF</p>
+          </div>
+        </div>
+        <div class="relationship">
+          <p class="relationship-title">tetradic</p>
+          <div class="text-control">
+            <p class="tetradic-text-one">#80FF00</p>
+            <p class="tetradic-text-two">#00FFFF</p>
+            <p class="tetradic-text-three">#7F00FF</p>
+          </div>
         </div>
       </div>
     </div>
