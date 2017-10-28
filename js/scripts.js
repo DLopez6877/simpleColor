@@ -47,8 +47,8 @@ $(function() {
     let tetradic = tinycolor("#f00").tetrad();
     tetradic = tetradic.map(function(t) { return t.toHexString(); });
 
-    let neutralLight = tinycolor.mix(color, '#fafafa', amount = 50).toHexString();
-    let neutralDark = tinycolor.mix(color, '#424242', amount = 50).toHexString();
+    let neutralLight = tinycolor.mix(color, '#fafafa', amount = 58).toHexString();
+    let neutralDark = tinycolor.mix(color, '#424242', amount = 58).toHexString();
 
     //change main colors
     $('body').css('background-color', hexcode);
