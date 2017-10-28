@@ -159,10 +159,10 @@ p {
   text-transform: uppercase;
   font-weight: 600;
   margin: 5px 0 5px 2.8vw;
-  cursor: pointer;
 }
 
-p:hover {
+p:not(.relationship-title):hover {
+  cursor: pointer;
   opacity: .8;
   transform: scale(.95);
 }
@@ -181,14 +181,19 @@ p:hover {
   .results-control {
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
   .relationship {
     flex-direction: column;
+    margin: 0 20px;
   }
   .text-control {
     flex-direction: column;
   }
   p {
     margin: 0;
+  }
+  input {
+    max-width: 600px;
   }
 }

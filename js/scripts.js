@@ -32,7 +32,7 @@ $(function() {
   $('form').submit(function(e) {
     e.preventDefault();
 
-    let color = tinycolor($('input').val());
+    let color = tinycolor($('input').val().replace(/[^a-z0-9]/gi, '')); //remove special charactors and spaces;
     let hexcode = color.toHexString();
     let invert = invertColor(hexcode);
 
@@ -46,6 +46,9 @@ $(function() {
 
     let tetradic = tinycolor("#f00").tetrad();
     tetradic = tetradic.map(function(t) { return t.toHexString(); });
+
+    let neutralLight = tinycolor.mix(color, '#fafafa', amount = 50).toHexString();
+    let neutralDark = tinycolor.mix(color, '#424242', amount = 50).toHexString();
 
     //change main colors
     $('body').css('background-color', hexcode);
@@ -83,6 +86,8 @@ $(function() {
     $('.tetradic-text-one').text(tetradic[1]);
     $('.tetradic-text-two').text(tetradic[2]);
     $('.tetradic-text-three').text(tetradic[3]);
+    $('.neutral-light-text').text(neutralLight);
+    $('.neutral-dark-text').text(neutralDark);
 
     //change result text color
     $('.invert-text').css('color', invert);
@@ -94,19 +99,8 @@ $(function() {
     $('.tetradic-text-one').css('color', tetradic[1]);
     $('.tetradic-text-two').css('color', tetradic[2]);
     $('.tetradic-text-three').css('color', tetradic[3]);
-
-    //change inner circle colors
-    $('.inner-circle').css('border', 'none');
-    $('.inner-main').css('border', '2px solid');
-    $('.inner-invert').css('background-color', invert);
-    $('.inner-complementary').css('background-color', comp);
-    $('.inner-split-comp-one').css('background-color', splitComp[1]);
-    $('.inner-split-comp-two').css('background-color', splitComp[2]);
-    $('.inner-triadic-one').css('background-color', triadic[1]);
-    $('.inner-triadic-two').css('background-color', triadic[2]);
-    $('.inner-tetradic-one').css('background-color', tetradic[1]);
-    $('.inner-tetradic-two').css('background-color', tetradic[2]);
-    $('.inner-tetradic-three').css('background-color', tetradic[3]);
+    $('.neutral-light-text').css('color', neutralLight);
+    $('.neutral-dark-text').css('color', neutralDark);
   });
 
 
@@ -144,27 +138,5 @@ $(function() {
   $("input[type='text']").click(function () {
     $(this).select();
   });
-
-  //change text color when clicking a relationship title
-  $('.relationship-title').click(function() {
-    let hexcodes = $(this).siblings().find('p').text();
-    let hexcodeOne = hexcodes.substring(0,7);
-    let hexcodeTwo = hexcodes.substring(7,14);
-    let hexcodeThree = hexcodes.substring(14,21);
-    $('*').css('color', hexcodeOne);
-    $('*').css('border-color', hexcodeOne);
-    if (hexcodes.length > 7) {
-      $('*').css('border-color', hexcodeTwo);
-      $('.logo-img').css('color', hexcodeTwo);
-      $('h1').css('color', hexcodeTwo);
-      $('.relationship-title').css('color', hexcodeTwo);
-    }
-    if (hexcodes.length > 14) {
-      $('p').css('color', hexcodeThree);
-      $('.relationship-title').css('color', hexcodeTwo);
-    }
-
-  });
-
 
 });
