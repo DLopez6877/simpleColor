@@ -127,6 +127,12 @@ button:focus {
 #controls span {
   font-weight: 200;
   margin-left: 20px;
+  cursor: pointer;
+}
+
+#controls span:hover {
+  opacity: .8;
+  transform: scale(.95);
 }
 
 .results-control {
@@ -153,6 +159,12 @@ p {
   text-transform: uppercase;
   font-weight: 600;
   margin: 5px 0 5px 2.8vw;
+  cursor: pointer;
+}
+
+p:hover {
+  opacity: .8;
+  transform: scale(.95);
 }
 
 .text-control {

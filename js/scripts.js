@@ -127,15 +127,44 @@ $(function() {
 
   //copy hexcodes to clipboard
   $('.text-control').children().click(function() {
-    $selectedHexcode = $(this).text();
-    $this = $(this);
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($selectedHexcode).select();
-    document.execCommand("copy");
-    $temp.remove();
-    $(this).text('Copied!');
-    setTimeout(function(){$($this).text($selectedHexcode);}, 1000);
+    console.log($(this).text)
+    if ($(this).text() != 'COPIED!')
+      $selectedHexcode = $(this).text();
+      $this = $(this);
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($selectedHexcode).select();
+      document.execCommand("copy");
+      $temp.remove();
+      $(this).text('COPIED!');
+      setTimeout(function(){$($this).text($selectedHexcode);}, 1000);
   })
+
+  //select text on click
+  $("input[type='text']").click(function () {
+    $(this).select();
+  });
+
+  //change text color when clicking a relationship title
+  $('.relationship-title').click(function() {
+    let hexcodes = $(this).siblings().find('p').text();
+    let hexcodeOne = hexcodes.substring(0,7);
+    let hexcodeTwo = hexcodes.substring(7,14);
+    let hexcodeThree = hexcodes.substring(14,21);
+    $('*').css('color', hexcodeOne);
+    $('*').css('border-color', hexcodeOne);
+    if (hexcodes.length > 7) {
+      $('*').css('border-color', hexcodeTwo);
+      $('.logo-img').css('color', hexcodeTwo);
+      $('h1').css('color', hexcodeTwo);
+      $('.relationship-title').css('color', hexcodeTwo);
+    }
+    if (hexcodes.length > 14) {
+      $('p').css('color', hexcodeThree);
+      $('.relationship-title').css('color', hexcodeTwo);
+    }
+
+  });
+
 
 });
